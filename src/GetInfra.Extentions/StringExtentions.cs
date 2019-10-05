@@ -18,7 +18,7 @@ namespace GetInfra.Extentions
 
             string str = s.ToLowerInvariant();
             // remove invalid chars          
-            str = Regex.Replace(str, @"[^A-Z0-9\s-]", "");
+            str = Regex.Replace(str, @"[^a-z0-9\s-]", "");
             // convert multiple spaces into one space   
             str = Regex.Replace(str, @"\s+", " ").Trim();
             // cut and trim 
