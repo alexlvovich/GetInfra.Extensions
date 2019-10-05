@@ -28,5 +28,20 @@ namespace GetInfra.Extentions
             
             return str;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static bool IsSlug(this string s)
+        {
+            if (string.IsNullOrEmpty(s)) throw new ArgumentNullException(nameof(s));
+
+            // 
+            if (Regex.IsMatch(s, @"^[a-z0-9-]+$"))
+                return true;
+            return false;
+        }
     }
 }

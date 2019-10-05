@@ -16,5 +16,16 @@ namespace GetInfra.Extentions.Tests
 
             slug.Should().NotBeNullOrEmpty();
         }
+
+
+        [Theory]
+        [InlineData("hello-world", true)]
+        [InlineData("hello world", false)]
+        public void IsSlug(string str, bool expected)
+        {
+            var isSlug = str.IsSlug();
+
+            isSlug.Should().Be(expected);
+        }
     }
 }
