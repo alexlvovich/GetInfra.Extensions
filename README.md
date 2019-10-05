@@ -1,2 +1,2 @@
 # GetInfra.Extensions
-Useful extensions library
+.NET Standard useful extensions library
