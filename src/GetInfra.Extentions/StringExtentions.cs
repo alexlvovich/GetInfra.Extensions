@@ -1,4 +1,6 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace GetInfra.Extentions
 {
@@ -9,11 +11,14 @@ namespace GetInfra.Extentions
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1308:Normalize strings to uppercase", Justification = "<Pending>")]
         public static string ToSlug(this string s)
         {
-            string str = s.ToLower();
+            if (string.IsNullOrEmpty(s)) throw new ArgumentNullException(nameof(s));
+
+            string str = s.ToLowerInvariant();
             // remove invalid chars          
-            str = Regex.Replace(str, @"[^a-z0-9\s-]", "");
+            str = Regex.Replace(str, @"[^A-Z0-9\s-]", "");
             // convert multiple spaces into one space   
             str = Regex.Replace(str, @"\s+", " ").Trim();
             // cut and trim 
