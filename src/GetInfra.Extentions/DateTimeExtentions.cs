@@ -23,7 +23,7 @@ namespace GetInfra.Extentions
         /// </summary>
         /// <param name="unixTime"></param>
         /// <returns></returns>
-        public static DateTime FromEpoch(long unixTime)
+        public static DateTime FromEpoch(this long unixTime)
         {
             var epoch = new DateTime(1970, 1, 1, 0, 0, 0);
             return epoch.AddSeconds(unixTime);
@@ -34,7 +34,7 @@ namespace GetInfra.Extentions
         /// </summary>
         /// <param name="unixTime"></param>
         /// <returns></returns>
-        public static DateTime FromEpochUtc(long unixTime)
+        public static DateTime FromEpochUtc(this long unixTime)
         {
             var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
             return epoch.AddSeconds(unixTime);
